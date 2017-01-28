@@ -6,12 +6,19 @@ module.exports = function(t) {
 
   var renderer = {},
       backgroundImage,
+      watermarkImage,
       wrapText,
       theme;
 
   renderer.backgroundImage = function(_) {
     if (!arguments.length) return backgroundImage;
     backgroundImage = _;
+    return this;
+  };
+
+  renderer.watermarkImage = function(_) {
+    if (!arguments.length) return watermarkImage;
+    watermarkImage = _;
     return this;
   };
 
@@ -49,6 +56,9 @@ module.exports = function(t) {
 
     if (backgroundImage) {
       context.drawImage(backgroundImage, 0, 0, theme.width, theme.height);
+    }
+    if(watermarkImage) {
+      context.drawImage(watermarkImage, theme.watermarkLeft || 0, theme.watermarkTop || 0, watermarkImage.width, watermarkImage.height);
     }
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);

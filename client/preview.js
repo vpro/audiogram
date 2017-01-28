@@ -83,6 +83,7 @@ function redraw() {
   var renderer = getRenderer(theme);
 
   renderer.backgroundImage(backgroundFileCanvasImage || theme.backgroundImageFile || null);
+  renderer.watermarkImage(theme.watermarkImageFile || null);
 
   renderer.drawFrame(context, {
     caption: caption,

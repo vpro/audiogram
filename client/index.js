@@ -249,30 +249,37 @@ function preloadImages(themes) {
     }
 
     if (theme.key !== "default") {
-      imageQueue.defer(getImage, theme.value);
+      imageQueue.defer(preloadImagesForTheme, theme.value);
+      // imageQueue.defer(getWatermark, theme.value);
     }
 
   });
 
   imageQueue.awaitAll(initialize);
 
-  function getImage(theme, cb) {
+  function preloadImagesForTheme(theme, cb) {
+    var queue = d3.queue();
+    queue.defer(createImage, theme, "backgroundImage", "backgroundImageFile");
+    queue.defer(createImage, theme, "watermarkImage", "watermarkImageFile");
+    queue.awaitAll(function() {
+      cb(null, theme);
+    });
+  }
 
-    if (!theme.backgroundImage) {
+  function createImage(theme, sourceProperty, targetProperty, cb) {
+    if (!theme[sourceProperty]) {
       return cb(null, theme);
     }
 
-    theme.backgroundImageFile = new Image();
-    theme.backgroundImageFile.onload = function(){
+    theme[targetProperty] = new Image();
+    theme[targetProperty].onload = function(){
       return cb(null, theme);
     };
-    theme.backgroundImageFile.onerror = function(e){
+    theme[targetProperty].onerror = function(e){
       console.warn(e);
       return cb(null, theme);
     };
-
-    theme.backgroundImageFile.src = "/settings/backgrounds/" + theme.backgroundImage;
-
+    theme[targetProperty].src = "/settings/backgrounds/" + theme[sourceProperty];
   }
 
 }
