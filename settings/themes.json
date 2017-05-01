@@ -5,44 +5,23 @@
     "framesPerSecond": 20,
     "maxDuration": 300,
     "samplesPerFrame": 128,
-    "pattern": "wave",
-    "waveTop": 150,
-    "waveBottom": 420,
-    "captionTop": 470,
-    "captionFont": "300 52px 'Source Sans Pro'",
+    "pattern": "bars",
+    "captionFont": "bold 52px 'Simplistic Sans'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "captionLeft": 200,
-    "captionRight": 1080
-  },
-  "VPRO theme 1": {
-    "pattern": "bars",
     "captionAlign": "right",
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundImage": "bb.png",
-    "captionFont": "bold 52px 'Simplistic Sans'",
-    "foregroundColor": "#fc0",
     "waveBottom": 660,
-    "waveTop": 320,
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+    "waveTop": 320
   },
-  "VPRO theme 2": {
-    "pattern": "bars",
-    "captionAlign": "right",
-    "captionTop": 60,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundImage": "bb-transparant.png",
-    "captionFont": "300 52px 'VPRO vesta'",
-    "foregroundColor": "#fc0",
-    "waveBottom": 660,
-    "waveTop": 320,
-    "backgroundColor": "#0f0",
-    "captionColor": "#ff0",
-    "waveColor": "#ff0"
+  "VPRO theme goud": {
+    "foregroundColor": "#f90",
+    "backgroundColor": "#000"
+  },
+  "VPRO theme geel": {
+    "foregroundColor": "#ff0",
+    "backgroundColor": "#000"
   }
 }
