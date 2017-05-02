@@ -4,36 +4,40 @@ var d3 = require("d3"),
     video = require("./video.js"),
     audio = require("./audio.js");
 
-d3.json("/settings/themes.json", function(err, themes){
 
-  var errorMessage;
+d3.queue()
+    .defer(d3.json, "/settings/logos.json")
+    .defer(d3.json, "/settings/themes.json")
+    .await(function(err, logos, themes) {
 
-  // Themes are missing or invalid
-  if (err || !d3.keys(themes).filter(function(d){ return d !== "default"; }).length) {
-    if (err instanceof SyntaxError) {
-      errorMessage = "Error in settings/themes.json:<br/><code>" + err.toString() + "</code>";
-    } else if (err instanceof ProgressEvent) {
-      errorMessage = "Error: no settings/themes.json.";
-    } else if (err) {
-      errorMessage = "Error: couldn't load settings/themes.json.";
-    } else {
-      errorMessage = "No themes found in settings/themes.json.";
-    }
-    d3.select("#loading-bars").remove();
-    d3.select("#loading-message").html(errorMessage);
-    if (err) {
-      throw err;
-    }
-    return;
-  }
+        var errorMessage;
 
-  for (var key in themes) {
-    themes[key] = $.extend({}, themes.default, themes[key]);
-  }
+        // Themes are missing or invalid
+        if (err || !d3.keys(themes).filter(function(d){ return d !== "default"; }).length) {
+            if (err instanceof SyntaxError) {
+                errorMessage = "Error in settings/themes.json:<br/><code>" + err.toString() + "</code>";
+            } else if (err instanceof ProgressEvent) {
+                errorMessage = "Error: no settings/themes.json.";
+            } else if (err) {
+                errorMessage = "Error: couldn't load settings/themes.json.";
+            } else {
+                errorMessage = "No themes found in settings/themes.json.";
+            }
+            d3.select("#loading-bars").remove();
+            d3.select("#loading-message").html(errorMessage);
+            if (err) {
+                throw err;
+            }
+            return;
+        }
 
-  preloadImages(themes);
+        for (var key in themes) {
+            themes[key] = $.extend({}, themes.default, themes[key]);
+        }
 
-});
+        preloadImages(themes);
+        preloadLogos(logos);
+    });
 
 function submitted() {
 
@@ -43,6 +47,8 @@ function submitted() {
       caption = preview.caption(),
       selection = preview.selection(),
       backgroundFile = preview.backgroundFile(),
+      logoFile = preview.logoFile(),
+      logoImage = preview.logoImage(),
       file = preview.file();
 
   if (!file) {
@@ -65,6 +71,8 @@ function submitted() {
 
   formData.append("audio", file);
   formData.append("backgroundImage", backgroundFile);
+  formData.append("logoImage", logoFile);
+
   if (selection.start || selection.end) {
     formData.append("start", selection.start);
     formData.append("end", selection.end);
@@ -135,6 +143,18 @@ function error(msg) {
 
 }
 
+function initializeLogos(err, logosWithImages) {
+    d3.select("#input-logo")
+        .on("change", updateLogoFile)
+        .selectAll("option")
+        .data(logosWithImages)
+        .enter()
+        .append("option")
+        .text(function(d){
+            return d.name;
+        });
+
+}
 // Once images are downloaded, set up listeners
 function initialize(err, themesWithImages) {
 
@@ -176,6 +196,11 @@ function initialize(err, themesWithImages) {
   // If there's an initial piece of audio (e.g. back button) load it
   d3.select("#input-audio").on("change", updateAudioFile).each(updateAudioFile);
   d3.select("#input-background-image").on("change", updateBackgroundFile).each(updateBackgroundFile);
+
+  d3.select("#input-background-image-clear").on("click", function(){
+      $("#input-background-image").replaceWith($("#input-background-image").val('').clone(true));
+      d3.select("#input-background-image").on("change", updateBackgroundFile).each(updateBackgroundFile);
+  });
 
   d3.select("#return").on("click", function(){
     d3.event.preventDefault();
@@ -229,6 +254,14 @@ function updateBackgroundFile() {
   })
 }
 
+function updateLogoFile() {
+    preview.loadLogoImage(d3.select(this.options[this.selectedIndex]).datum(), function(err) {
+        if(err) {
+            console.warn(err);
+        }
+    })
+}
+
 function updateCaption() {
   preview.caption(this.value);
 }
@@ -279,10 +312,57 @@ function preloadImages(themes) {
       console.warn(e);
       return cb(null, theme);
     };
-    theme[targetProperty].src = "/settings/backgrounds/" + theme[sourceProperty];
+    theme[targetProperty].src = "/settings/images/" + theme[sourceProperty];
   }
 
 }
+
+
+function preloadLogos(logos) {
+
+    // preload images
+    var imageQueue = d3.queue();
+
+    d3.entries(logos).forEach(function(logo){
+
+        if (!logo.value.name) {
+            logo.value.name = logo.key;
+        }
+
+        if (logo.key !== "default") {
+            imageQueue.defer(preloadImagesForLogo, logo.value);
+        }
+
+    });
+
+    imageQueue.awaitAll(initializeLogos);
+
+    function preloadImagesForLogo(logo, cb) {
+        var queue = d3.queue();
+        queue.defer(createImage, logo, "logoImage", "logoImageFile");
+        queue.awaitAll(function() {
+            cb(null, logo);
+        });
+    }
+
+    function createImage(logo, sourceProperty, targetProperty, cb) {
+        if (!logo[sourceProperty]) {
+            return cb(null, logo);
+        }
+
+        logo[targetProperty] = new Image();
+        logo[targetProperty].onload = function(){
+            return cb(null, logo);
+        };
+        logo[targetProperty].onerror = function(e){
+            console.warn(e);
+            return cb(null, logo);
+        };
+        logo[targetProperty].src = "/settings/images/" + logo[sourceProperty];
+    }
+
+}
+
 
 function setClass(cl, msg) {
   d3.select("body").attr("class", cl || null);

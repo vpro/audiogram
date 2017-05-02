@@ -11,8 +11,11 @@ var context = d3.select("canvas").node().getContext("2d");
 var theme,
     caption,
     file,
+    logoImage,
+    logoFile,
     backgroundFile,
     backgroundFileCanvasImage,
+    logoFileCanvasImage,
     selection;
 
 function _file(_) {
@@ -21,6 +24,14 @@ function _file(_) {
 
 function _backgroundFile(_) {
   return arguments.length ? (backgroundFile = _) : backgroundFile;
+}
+
+function _logoFile(_) {
+  return arguments.length ? ( logoFile = _, redraw()) : logoFile;
+}
+
+function _logoImage(_) {
+  return arguments.length ? ( logoImage = _, redraw()) : logoImage;
 }
 
 function _theme(_) {
@@ -83,7 +94,8 @@ function redraw() {
   var renderer = getRenderer(theme);
 
   renderer.backgroundImage(backgroundFileCanvasImage || theme.backgroundImageFile || null);
-  renderer.watermarkImage(theme.watermarkImageFile || null);
+  renderer.watermarkImage(logoFileCanvasImage || theme.watermarkImageFile || null);
+  // renderer.logoImage(logoFileCanvasImage || null);
 
   renderer.drawFrame(context, {
     caption: caption,
@@ -113,6 +125,34 @@ function loadAudio(f, cb) {
 
 }
 
+function loadLogoImage(f, cb) {
+  logoFile = f;
+  if( logoFile && logoFile.logoImage ) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+          logoFileCanvasImage = new Image();
+          logoFileCanvasImage.onload = function(event) {
+            redraw();
+            cb(null);
+          };
+          logoFileCanvasImage.src = event.target.result;
+      };
+      logoFile = new File([xhr.response ], logoFile.name );
+      reader.readAsDataURL(xhr.response);
+
+    };
+    xhr.open('GET', "./settings/images/" + logoFile.logoImage );
+    xhr.responseType = 'blob';
+    xhr.send();
+
+  } else {
+    logoFileCanvasImage = null;
+    redraw();
+  }
+}
+
 function loadBackgroundImage(f, cb) {
   var reader;
   backgroundFile = f;
@@ -136,9 +176,12 @@ function loadBackgroundImage(f, cb) {
 module.exports = {
   caption: _caption,
   theme: _theme,
+  logoImage : _logoImage,
   file: _file,
   backgroundFile: _backgroundFile,
+  logoFile: _logoFile,
   selection: _selection,
   loadAudio: loadAudio,
-  loadBackgroundImage: loadBackgroundImage
+  loadBackgroundImage: loadBackgroundImage,
+  loadLogoImage: loadLogoImage
 };

@@ -5,28 +5,83 @@
     "framesPerSecond": 20,
     "maxDuration": 300,
     "samplesPerFrame": 128,
-    "pattern": "wave",
-    "captionFont": "300 52px 'Source Sans Pro'",
+    "pattern": "bars",
+    "captionFont": "300 52px 'Simplistic sans'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
     "captionAlign": "right",
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
-    "watermarkImage": "brno.png",
-    "watermarkLeft": 20,
-    "watermarkTop":40,
+    "watermarkLeft": 0,
+    "watermarkTop": 0,
+    "backgroundColor": "#000",
     "foregroundColor": "#fc0",
     "waveBottom": 660,
     "waveTop": 320
   },
-  "VPRO theme goud": {
+  "VPRO goud": {
     "foregroundColor": "#f90",
-    "backgroundColor": "#000"
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
   },
-  "VPRO theme geel": {
+  "VPRO oranje": {
+    "foregroundColor": "#f90",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO rood": {
+    "foregroundColor": "#f00",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO roze": {
+    "foregroundColor": "#f09",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO plum": {
+    "foregroundColor": "#c0f",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO violet": {
+    "foregroundColor": "#66f",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO royal": {
+    "foregroundColor": "#06f",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO blauw": {
+    "foregroundColor": "#0af",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO turqoise": {
+    "foregroundColor": "#0cc",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO groen": {
+    "foregroundColor": "#0c0",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO lime": {
+    "foregroundColor": "#0f0",
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "VPRO geel": {
     "foregroundColor": "#ff0",
-    "backgroundColor": "#000"
+    "backgroundColor": "#000",
+    "backgroundImage" : "lichtgrijs.png"
+  },
+  "test met geintegreeerd logo" : {
+    "watermarkImage": "bb-transparant.png",
+    "backgroundImage" : "lichtgrijs.png"
   }
 }

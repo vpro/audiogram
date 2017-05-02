@@ -25,7 +25,7 @@ function loadBackgroundImage(theme, renderer, cb) {
   };
   var backgroundImagePath = theme.customBackgroundImage
     ? theme.customBackgroundImage
-    : path.join(__dirname, "..", "settings", "backgrounds", theme.backgroundImage);
+    : path.join(__dirname, "..", "settings", "images", theme.backgroundImage);
 
   // Load background image from file (done separately so renderer code can work in browser too)
   fs.readFile(backgroundImagePath, function(err, raw){
@@ -47,7 +47,7 @@ function loadWatermark(theme, renderer, cb) {
   };
   var watermarkImagePath = theme.customwatermarkImage
     ? theme.customwatermarkImage
-    : path.join(__dirname, "..", "settings", "backgrounds", theme.watermarkImage);
+    : path.join(__dirname, "..", "settings", "images", theme.watermarkImage);
 
   // Load watermark image from file (done separately so renderer code can work in browser too)
   fs.readFile(watermarkImagePath, function(err, raw){

@@ -2,6 +2,9 @@
   "name": "audiogram",
   "version": "0.9.5",
   "description": "Turn audio into a shareable video.",
+  "publishConfig": {
+    "registry": "https://nexus.vpro.nl/content/repositories/npm-vpro/"
+  },
   "main": "index.js",
   "scripts": {
     "start": "npm run postinstall && bin/server",
@@ -42,7 +45,8 @@
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
     "webaudio-peaks": "0.0.5",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "vpro-bootstrap": "~0.7.0"
   },
   "devDependencies": {
     "supertest": "^1.2.0",

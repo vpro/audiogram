@@ -1,10 +1,11 @@
 {
-  "vrijegeluiden": {
-    "name": "vrije Geluiden",
-    "logo": "jazz.png"
-  },
+  "none" : {},
   "bureaubuitenland": {
     "name": "bureau buitenland",
-    "logo": "_CRo.png"
+    "logoImage": "bb-transparant.png"
+  },
+  "vpro blauw": {
+    "name": "vpro blauw",
+    "logoImage": "vpro-blauw.png"
   }
 }

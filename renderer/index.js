@@ -7,6 +7,7 @@ module.exports = function(t) {
   var renderer = {},
       backgroundImage,
       watermarkImage,
+      logoImage,
       wrapText,
       theme;
 
@@ -19,6 +20,12 @@ module.exports = function(t) {
   renderer.watermarkImage = function(_) {
     if (!arguments.length) return watermarkImage;
     watermarkImage = _;
+    return this;
+  };
+
+  renderer.logoImage = function(_) {
+    if (!arguments.length) return logoImage;
+    logoImage = _;
     return this;
   };
 
@@ -57,9 +64,16 @@ module.exports = function(t) {
     if (backgroundImage) {
       context.drawImage(backgroundImage, 0, 0, theme.width, theme.height);
     }
+
     if(watermarkImage) {
+      console.log('ja watermark');
       context.drawImage(watermarkImage, theme.watermarkLeft || 0, theme.watermarkTop || 0, watermarkImage.width, watermarkImage.height);
     }
+
+    // if(logoImage) {
+    //   console.log('ja logimage');
+    //   context.drawImage(logoImage, theme.watermarkLeft || 0, theme.watermarkTop || 0, logoImage.width, logoImage.height);
+    // }
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);
 

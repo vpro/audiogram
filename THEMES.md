@@ -30,10 +30,10 @@ To see what specs different social media platforms want, see the [Developer note
 
 Background options:
 
-* `backgroundImage` - What image to put in the background of every frame, it should be a file in `settings/backgrounds/`
+* `backgroundImage` - What image to put in the background of every frame, it should be a file in `settings/images/`
 * `backgroundColor` - A CSS color to fill the background of every frame (e.g. `pink` or `#ff00ff`). The default is white.
 
-If a `backgroundImage` is defined, its dimensions should match the theme's width and height and the file should be in `settings/backgrounds/`. So for example, you could add:
+If a `backgroundImage` is defined, its dimensions should match the theme's width and height and the file should be in `settings/images/`. So for example, you could add:
 
 ```js
   "tmnt": {
@@ -43,7 +43,7 @@ If a `backgroundImage` is defined, its dimensions should match the theme's width
   }
 ```
 
-and save a background image as `settings/backgrounds/tmnt-bg.png`.
+and save a background image as `settings/images/tmnt-bg.png`.
 
 You can set both a `backgroundColor` and a `backgroundImage`, in which case the image will be drawn on top of the color.
 

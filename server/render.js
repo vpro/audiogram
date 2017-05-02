@@ -21,7 +21,11 @@ function validate(req, res, next) {
   }
 
   if(req.files.backgroundImage && req.files.backgroundImage[0].filename) {
-    req.body.theme.customBackgroundImage = req.files.backgroundImage[0].path;
+     req.body.theme.customBackgroundImage = req.files.backgroundImage[0].path;
+  }
+
+  if(req.files.logoImage && req.files.logoImage[0].filename) {
+    req.body.theme.customwatermarkImage = req.files.logoImage[0].path;
   }
 
   // Start at the beginning, or specified time

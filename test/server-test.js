@@ -108,7 +108,7 @@ tape("Font file", function(test) {
 tape("Server static background", function(test) {
 
   request(server)
-    .get("/settings/backgrounds/nyc.png")
+    .get("/settings/images/nyc.png")
     .expect(200)
     .expect("Content-Type", /image/)
     .end(function(err, res){

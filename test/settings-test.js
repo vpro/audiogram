@@ -278,7 +278,7 @@ tape("Themes", function(test) {
   });
 
   doesNotWarn(test, function(){
-    validateThemes({ "default": { width: 0, height: 0, framesPerSecond: 0, samplesPerFrame: 0 }, "theme": { backgroundImage: path.join(__dirname, "..", "settings/backgrounds/subway.jpg") } });
+    validateThemes({ "default": { width: 0, height: 0, framesPerSecond: 0, samplesPerFrame: 0 }, "theme": { backgroundImage: path.join(__dirname, "..", "settings/images/subway.jpg") } });
   });
 
   test.end();

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Audiogram</title>
+    <title>VPRO Audiograms</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -9,6 +9,8 @@
     <link href="/css/base.css" rel="stylesheet" type="text/css">
     <link href="/css/editor.css" rel="stylesheet" type="text/css">
     <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+    <link href="http://files.vpro.nl/frontend/bootstrap/dist/style.css" rel="stylesheet" type="text/css">
+
   </head>
   <body class="loading">
     <div class="container">
@@ -22,23 +24,31 @@
       <div id="loaded">
         <div id="error"></div>
         <div class="row form-row" id="row-audio">
-          <label for="input-audio">Audio</label>
+          <label for="input-audio">Audiobestand</label>
           <input id="input-audio" name="audio" type="file" />
         </div>
         <div class="row form-row" id="row-theme">
-          <label for="input-theme">Theme</label>
+          <label for="input-theme">Kleurenschema</label>
           <select id="input-theme" name="theme"></select>
         </div>
+        <div class="row form-row" id="row-logo">
+          <label for="input-logo">Logo</label>
+          <select id="input-logo" name="logo"></select>
+        </div>
         <div class="row form-row" id="row-background-image">
-          <label for="input-background-image">Background image</label>
+          <label for="input-background-image">Achtergrond afbeelding</label>
+          <div class="note">Upload een eigen afbeelding met verhouding 1280x720 px</div>
+
           <input id="input-background-image" name="backgroundImage" type="file" />
+          <br>
+          <button id="input-background-image-clear">Wis achtergrondafbeelding</button>
         </div>
         <div class="row form-row" id="row-caption">
           <label for="input-caption">
             Caption
-            <div class="note">Add two spaces in a row to force a line break.</div>
+            <div class="note">Typ 2 spaties om geforceerd naar de volgende regel te gaan</div>
           </label>
-          <input id="input-caption" value="Voer hier je titel in" name="caption" type="text" autocomplete="off" placeholder="Add a caption" />
+          <input id="input-caption" name="caption" type="text" autocomplete="off" placeholder="Voer hier je titel in" />
         </div>
         <div id="preview">
           <div style="background-color: black;">

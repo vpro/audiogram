@@ -51,7 +51,7 @@ if (serverSettings.maxUploadSize) {
 }
 
 // On submission, check upload, validate input, and start generating a video
-app.post("/submit/", [multer(fileOptions).fields([{name: "audio", maxCount: 1}, {name: "backgroundImage", maxCount: 1}], {}), render.validate, render.route]);
+app.post("/submit/", [multer(fileOptions).fields([{name: "audio", maxCount: 1}, {name: "backgroundImage", maxCount: 1}, {name: "logoImage", maxCount: 1}], {}), render.validate, render.route]);
 
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {
@@ -74,7 +74,7 @@ app.get("/status/:id/", status);
 app.use("/settings/", function(req, res, next) {
 
   // Limit to themes.json and bg images
-  if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
+  if (req.url.match(/^\/?themes.json$/i) ||  req.url.match(/^\/?logos.json$/i) || req.url.match(/^\/?images\/[^/]+$/i)) {
     return next();
   }
 
