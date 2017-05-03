@@ -66,14 +66,8 @@ module.exports = function(t) {
     }
 
     if(watermarkImage) {
-      console.log('ja watermark');
       context.drawImage(watermarkImage, theme.watermarkLeft || 0, theme.watermarkTop || 0, watermarkImage.width, watermarkImage.height);
     }
-
-    // if(logoImage) {
-    //   console.log('ja logimage');
-    //   context.drawImage(logoImage, theme.watermarkLeft || 0, theme.watermarkTop || 0, logoImage.width, logoImage.height);
-    // }
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);
 
