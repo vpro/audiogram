@@ -44,9 +44,9 @@
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
+    "vpro-bootstrap": "~0.7.0",
     "webaudio-peaks": "0.0.5",
-    "winston": "^2.2.0",
-    "vpro-bootstrap": "~0.7.0"
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "supertest": "^1.2.0",

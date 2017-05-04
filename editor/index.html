@@ -13,8 +13,26 @@
 
   </head>
   <body class="loading">
-    <div class="container">
-      <h1>Audiogram</h1>
+
+    <div class="bg-blue c-white">
+
+      <header class="clearfix">
+
+        <div class="col col-6-1">
+          <i class="glyph glyph-vprooutline c-white"></i>
+        </div>
+
+        <div class="col col-6-5">
+          <p class="text">
+            <h2 class="c-white">Audiograms</h2>
+          </p>
+        </div>
+
+      </header>
+
+    </div>
+
+    <div class=" grid grid-gutter">
       <div id="loading">
         <div id="loading-bars">
           <div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div><div class="r5"></div>
@@ -23,84 +41,95 @@
       </div><!-- #loading -->
       <div id="loaded">
         <div id="error"></div>
-        <div class="row form-row" id="row-audio">
-          <label for="input-audio">Audiobestand</label>
-          <input id="input-audio" name="audio" type="file" />
-        </div>
-        <div class="row form-row" id="row-theme">
-          <label for="input-theme">Kleurenschema</label>
-          <select id="input-theme" name="theme"></select>
-        </div>
-        <div class="row form-row" id="row-logo">
-          <label for="input-logo">Logo</label>
-          <select id="input-logo" name="logo"></select>
-        </div>
-        <div class="row form-row" id="row-background-image">
-          <label for="input-background-image">Achtergrond afbeelding</label>
-          <div class="note">Upload een eigen afbeelding met verhouding 1280x720 px</div>
+        <div class="clearfix">
+          <div class="row form-row" id="row-audio">
+            <label for="input-audio"><h5>1. Upload een audiobestand</h5></label>
+            <input id="input-audio" name="audio" type="file" />
+          </div>
+          <h5>2. Styling</h5>
+          <div class="col-3-1 col row form-row" id="row-theme">
+            <label for="input-theme">Kleurenschema</label>
+            <select id="input-theme" name="theme"></select>
+          </div>
+          <div class="col-3-1 col row form-row" id="row-logo">
+            <label for="input-logo">Logo</label>
+            <select id="input-logo" name="logo"></select>
+          </div>
+          <div class="col-3-1 col row form-row" id="row-background-image">
+            <label for="input-background-image">Achtergrond afbeelding</label>
+            <div class="note">Upload een eigen afbeelding met verhouding 1280x720 px</div>
 
-          <input id="input-background-image" name="backgroundImage" type="file" />
-          <br>
-          <button id="input-background-image-clear">Wis achtergrondafbeelding</button>
-        </div>
-        <div class="row form-row" id="row-caption">
-          <label for="input-caption">
-            Caption
-            <div class="note">Typ 2 spaties om geforceerd naar de volgende regel te gaan</div>
-          </label>
-          <input id="input-caption" name="caption" type="text" autocomplete="off" placeholder="Voer hier je titel in" />
-        </div>
-        <div id="preview">
-          <div style="background-color: black;">
-            <div id="canvas">
-              <canvas width="640" height="360"></canvas>
-              <div id="preview-label">Preview</div>
-            </div>
-          </div>
-          <div id="minimap" class="hidden">
-            <svg width="640" height="80" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <clipPath id="clip">
-                  <rect height="80" width="640" x="0" y="0"></rect>
-                </clipPath>
-              </defs>
-              <g class="waveform background">
-                <line x1="0" x2="640" y1="40" y2="40"></line>
-                <path></path>
-              </g>
-              <g class="waveform foreground" clip-path="url(#clip)">
-                <line x1="0" x2="640" y1="40" y2="40"></line>
-                <path></path>
-              </g>
-              <g class="brush"></g>
-              <g class="time">
-                <line x1="0" x2="0" y1="0" y2="80"></line>
-              </g>
-            </svg>
-            <div id="controls">
-              <span id="tip">Click and drag over the waveform to clip audio<br />Use space bar to play/pause</span>
-              <span id="duration"><strong></strong> seconds selected</span>
-              <button id="play"><i class="fa fa-play"></i>Play</button>
-              <button id="pause" class="hidden"><i class="fa fa-pause"></i>Pause</button>
-              <button id="restart"><i class="fa fa-step-backward"></i>Restart</button>
-            </div>
+            <input id="input-background-image" name="backgroundImage" type="file" />
+            <br>
+            <button id="input-background-image-clear">
+              <i class="glyph glyph-close"></i>
+              Wis achtergrondafbeelding</button>
           </div>
         </div>
-        <div id="audio">
-          <audio controls>
-            <source />
-          </audio>
+
+        <div class="clearfix">
+          <div class="col-3-2 col clearfix row form-row" id="row-caption">
+            <label for="input-caption">
+              <h5>3. Caption</h5>
+              <div class="note">Typ 2 spaties om geforceerd naar de volgende regel te gaan</div>
+            </label>
+            <input id="input-caption" name="caption" type="text" autocomplete="off" placeholder="Voer hier je titel in" />
+          </div>
         </div>
-        <div id="video">
-          <video width="640" height="360" controls>
-            <source type="video/mp4" />
-          </video>
-        </div>
-        <div class="row" id="row-submit">
-          <button type="button" id="return" class="left"><i class="fa fa-edit"></i>Return to editor</button>
-          <button type="button" id="submit" class="right hidden"><i class="fa fa-cloud-upload"></i>Generate</button>
-          <a id="download" class="button right" href="#" target="_blank"><i class="fa fa-download"></i>Download</a>
-          <div class="clear"></div>
+
+        <div class="preview-container">
+          <div id="preview" >
+            <div style="background-color: black;">
+              <div id="canvas">
+                <canvas width="640" height="360"></canvas>
+                <div id="preview-label">Preview</div>
+              </div>
+            </div>
+            <div id="minimap" class="hidden">
+              <svg width="640" height="80" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <clipPath id="clip">
+                    <rect height="80" width="640" x="0" y="0"></rect>
+                  </clipPath>
+                </defs>
+                <g class="waveform background">
+                  <line x1="0" x2="640" y1="40" y2="40"></line>
+                  <path></path>
+                </g>
+                <g class="waveform foreground" clip-path="url(#clip)">
+                  <line x1="0" x2="640" y1="40" y2="40"></line>
+                  <path></path>
+                </g>
+                <g class="brush"></g>
+                <g class="time">
+                  <line x1="0" x2="0" y1="0" y2="80"></line>
+                </g>
+              </svg>
+              <div id="controls">
+                <span id="tip">Click and drag over the waveform to clip audio<br />Use space bar to play/pause</span>
+                <span id="duration"><strong></strong> seconds selected</span>
+                <button id="play"><i class="fa fa-play"></i>Play</button>
+                <button id="pause" class="hidden"><i class="fa fa-pause"></i>Pause</button>
+                <button id="restart"><i class="fa fa-step-backward"></i>Restart</button>
+              </div>
+            </div>
+          </div>
+          <div id="audio">
+            <audio controls>
+              <source />
+            </audio>
+          </div>
+          <div id="video">
+            <video width="640" height="360" controls>
+              <source type="video/mp4" />
+            </video>
+          </div>
+          <div class="row" id="row-submit">
+            <button type="button" id="return" class="left"><i class="fa fa-edit"></i>Return to editor</button>
+            <button type="button" id="submit" class="right hidden"><i class="fa fa-cloud-upload"></i>Generate</button>
+            <a id="download" class="button right" href="#" target="_blank"><i class="fa fa-download"></i>Download</a>
+            <div class="clear"></div>
+          </div>
         </div>
       </div><!-- #loaded -->
     </div><!-- .container -->

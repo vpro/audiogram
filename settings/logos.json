@@ -4,8 +4,40 @@
     "name": "bureau buitenland",
     "logoImage": "bb-transparant.png"
   },
-  "vpro blauw": {
-    "name": "vpro blauw",
-    "logoImage": "vpro-blauw.png"
+  "vpro zwart blauw": {
+    "name": "zwart blauw",
+    "logoImage": "vpro-black-blue.png"
+  },
+  "vpro zwart roze": {
+    "name": "vpro zwart roze",
+    "logoImage": "vpro-black-pink.png"
+  },
+  "vpro zwart wit blauw": {
+    "name": "vpro zwart wit blauw",
+    "logoImage": "vpro-black-white-blue.png"
+  },
+  "vpro zwart wit": {
+    "name": "vpro zwart wit",
+    "logoImage": "vpro-black-white.png"
+  },
+  "vpro outline zwart": {
+    "name": "vpro outline zwart",
+    "logoImage": "vpro-outline-black.png"
+  },
+  "vpro outline wit": {
+    "name": "vpro outline wit",
+    "logoImage": "vpro-outline-white.png"
+  },
+  "vpro wit zwart": {
+    "name": "vpro wit zwart",
+    "logoImage": "vpro-white-black.png"
+  },
+  "vpro wit blauw": {
+    "name": "vpro wit blauw",
+    "logoImage": "vpro-white-blue.png"
+  },
+  "vpro wit roze": {
+    "name": "vpro wit roze",
+    "logoImage": "vpro-white-pink.png"
   }
 }

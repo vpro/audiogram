@@ -2,6 +2,7 @@ var d3 = require("d3"),
     $ = require("jquery"),
     preview = require("./preview.js"),
     video = require("./video.js"),
+    _ = require("underscore"),
     audio = require("./audio.js");
 
 
@@ -199,6 +200,7 @@ function initialize(err, themesWithImages) {
 
   d3.select("#input-background-image-clear").on("click", function(){
       $("#input-background-image").replaceWith($("#input-background-image").val('').clone(true));
+      console.log('test');
       d3.select("#input-background-image").on("change", updateBackgroundFile).each(updateBackgroundFile);
   });
 
