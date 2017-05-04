@@ -168,6 +168,8 @@ function initialize(err, themesWithImages) {
     .append("option")
       .text(function(d){
         return d.name;
+      }).attr("data-content", function(d) {
+        return "<img width='50px' height='50px' src='./settings/images/" + d.backgroundImage +"'></span>";
       });
 
   // Get initial theme

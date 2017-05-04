@@ -17,17 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nypublicradio/audiogram.git"
+    "url": "https://github.com/vpro/audiogram.git"
   },
   "keywords": [],
-  "author": {
-    "name": "Noah Veltman",
-    "url": "https://twitter.com/veltman"
-  },
   "license": "MIT",
   "dependencies": {
     "async": "^2.1.4",
     "aws-sdk": "^2.2.39",
+    "bootstrap": "^3.3.7",
+    "bootstrap-select": "^1.12.2",
     "browserify": "^13.0.0",
     "canvas": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
     "compression": "^1.6.1",
