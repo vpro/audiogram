@@ -208,7 +208,6 @@ function initialize(err, themesWithImages) {
 
   d3.select("#input-background-image-clear").on("click", function(){
       $("#input-background-image").replaceWith($("#input-background-image").val('').clone(true));
-      console.log('test');
       d3.select("#input-background-image").on("change", updateBackgroundFile).each(updateBackgroundFile);
   });
 
@@ -257,11 +256,13 @@ function updateAudioFile() {
 }
 
 function updateBackgroundFile() {
-  preview.loadBackgroundImage(this.files[0], function(err) {
-    if(err) {
-      console.warn(err);
+    if ( this.files ) {
+      preview.loadBackgroundImage(this.files[0], function(err) {
+        if(err) {
+          console.warn(err);
+        }
+      })
     }
-  })
 }
 
 function updateLogoFile() {
@@ -429,7 +430,7 @@ $(document).ready( function() {
         if( input.length ) {
             input.val(log);
         } else {
-            if( log ) alert(log);
+            //if( log ) alert(log);
         }
 
     });
