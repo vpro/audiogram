@@ -75,9 +75,5 @@
   "VPRO grey": {
     "foregroundColor": "#333",
     "backgroundImage" : "theme-greybat.png"
-  },
-  "test met geintegreeerd logo" : {
-    "watermarkImage": "bb-transparant.png",
-    "backgroundImage" : "lichtgrijs.png"
   }
 }

@@ -1,5 +1,6 @@
 div.preview-container {
   width: 640px;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -324,4 +325,61 @@ header .glyph-vprooutline {
 button .glyph,
 .button .glyph {
   display: inline-block;
+}
+
+
+
+
+#input-background-image-clear {
+  line-height: 35px;
+}
+
+#input-background-image-clear .glyph{
+  top:6px;
+  position:relative;
+}
+
+.theme-preview{
+  padding:8px;
+  width:160px;
+  height:90px;
+  background-size:cover;
+  font-size:14px;
+}
+
+
+.logo-preview{
+  background-color: #e1e1e1;
+  padding:8px;
+  width:160px;
+  height:90px;
+  background-size:cover;
+  font-size:14px;
+}
+
+
+
+
+
+
+
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }

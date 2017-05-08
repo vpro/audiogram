@@ -85,6 +85,8 @@ app.use("/settings/", function(req, res, next) {
 // Serve editor files statically
 app.use(express.static(path.join(__dirname, "..", "editor")));
 
+app.use('/node_modules' , express.static('node_modules'));
+
 app.use(errorHandlers);
 
 module.exports = app;

@@ -10,15 +10,16 @@
     <link href="/css/editor.css" rel="stylesheet" type="text/css">
     <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="/js/bootstrap.min.css">
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 
-    <link href="/js/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     <link href="http://files.vpro.nl/frontend/bootstrap/dist/style.css" rel="stylesheet" type="text/css">
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/bootstrap-select.min.js"></script>
 
   </head>
   <body class="loading">
@@ -51,33 +52,51 @@
       <div id="loaded">
         <div id="error"></div>
         <div class="clearfix">
-          <div class="row form-row" id="row-audio">
-            <label for="input-audio"><h5>1. Upload een audiobestand</h5></label>
-            <input id="input-audio" name="audio" type="file" />
+          <div class="col-3-1" id="row-audio">
+            <h5>1. Upload een audiobestand</h5>
+
+            <div class="input-group">
+              <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse &hellip; <input id="input-audio" type="file" style="display: none;" multiple>
+                    </span>
+              </label>
+              <input type="text" class="form-control" readonly>
+            </div>
+
           </div>
           <h5>2. Styling</h5>
-          <div class="col-3-1 col row form-row" id="row-theme">
-            <label for="input-theme">Kleurenschema</label>
+          <div class="col-3-1 col " id="row-theme">
+            <label for="input-theme">Kleurenschema</label><br>
             <select id="input-theme" name="theme" class="selectpicker"></select>
           </div>
-          <div class="col-3-1 col row form-row" id="row-logo">
-            <label for="input-logo">Logo</label>
-            <select id="input-logo" name="logo"></select>
+          <div class="col-3-1 col " id="row-logo">
+            <label for="input-logo">Logo</label><br>
+            <select id="input-logo" name="logo" class="selectpicker"></select>
           </div>
-          <div class="col-3-1 col row form-row" id="row-background-image">
+          <div class="col-3-1 col " id="row-background-image">
             <label for="input-background-image">Achtergrond afbeelding</label>
             <div class="note">Upload een eigen afbeelding met verhouding 1280x720 px</div>
 
-            <input id="input-background-image" name="backgroundImage" type="file" />
+            <!--<input id="input-background-image" name="backgroundImage" type="file" />-->
+
+            <div class="input-group">
+              <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse &hellip; <input id="input-audio" type="file" style="display: none;" multiple>
+                    </span>
+              </label>
+              <input id="input-background-image" type="text" class="form-control" readonly>
+            </div>
+
             <br>
-            <button id="input-background-image-clear">
-              <i class="glyph glyph-close"></i>
+            <button id="input-background-image-clear" class="btn btn-default">
               Wis achtergrondafbeelding</button>
           </div>
         </div>
 
         <div class="clearfix">
-          <div class="col-3-2 col clearfix row form-row" id="row-caption">
+          <div class="col-3-2 col clearfix" id="row-caption">
             <label for="input-caption">
               <h5>3. Caption</h5>
               <div class="note">Typ 2 spaties om geforceerd naar de volgende regel te gaan</div>

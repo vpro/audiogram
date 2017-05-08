@@ -153,6 +153,12 @@ function initializeLogos(err, logosWithImages) {
         .append("option")
         .text(function(d){
             return d.name;
+        }).attr("data-content", function(d) {
+            if ( d.logoImage ) {
+                return "<div class='logo-preview' style='background-image:url( \"./settings/images/"+  d.logoImage + " \");'></div>";
+            } else {
+                return "";
+            }
         });
 
 }
@@ -169,7 +175,7 @@ function initialize(err, themesWithImages) {
       .text(function(d){
         return d.name;
       }).attr("data-content", function(d) {
-        return "<img width='50px' height='50px' src='./settings/images/" + d.backgroundImage +"'></span>";
+        return "<div class='theme-preview' style='color:"+ d.foregroundColor +";background-image:url( \"./settings/images/"+  d.backgroundImage + " \");'>"+ d.name +"</div>";
       });
 
   // Get initial theme
@@ -403,3 +409,28 @@ function statusMessage(result) {
   }
 
 }
+
+
+
+$(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+});
+
+// We can watch for our custom `fileselect` event like this
+$(document).ready( function() {
+    $(':file').on('fileselect', function(event, numFiles, label) {
+
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+
+    });
+});
