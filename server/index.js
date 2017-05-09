@@ -11,7 +11,8 @@ var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
     fonts = require("./fonts.js"),
-    errorHandlers = require("./error.js");
+    errorHandlers = require("./error.js"),
+    cleanJobs = require('./cleanJobs.js');
 
 // Settings
 var serverSettings = require("../lib/settings/");
@@ -65,6 +66,10 @@ app.get("/fonts/fonts.js", fonts.js);
 if (serverSettings.fonts) {
   app.get("/fonts/:font", fonts.font);
 }
+
+
+// Check the status of a current video
+ app.get("/cleanJobs/", cleanJobs);
 
 // Check the status of a current video
 app.get("/status/:id/", status);

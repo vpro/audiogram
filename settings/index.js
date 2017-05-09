@@ -14,6 +14,8 @@
   redisHost - a redis host name/address to use for tracking jobs (e.g. "1.2.3.4" or "127.0.0.1")
   worker - if this is truthy, the server will add jobs to a queue. Otherwise, it will render videos on the spot itself
 
+ redisHost: "127.0.0.1",
+ worker: true,
 */
 
 var path = require("path");
@@ -21,6 +23,8 @@ var path = require("path");
 module.exports = {
   workingDirectory: path.join(__dirname, "..", "tmp"),
   storagePath: path.join(__dirname, "..", "media"),
+  redisHost: "127.0.0.1",
+  worker: true,
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
