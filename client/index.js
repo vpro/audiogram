@@ -115,7 +115,7 @@ function poll(id) {
         } else if (result.status === "error") {
           error(result.error);
         } else {
-          d3.select("#loading-message").text(statusMessage(result));
+          d3.select("#loading-message").html(statusMessage(result));
           poll(id);
         }
       }
@@ -384,7 +384,12 @@ function statusMessage(result) {
 
   switch (result.status) {
     case "queued":
-      return "Waiting for other jobs to finish, #" + (result.position + 1) + " in queue";
+        var msg = "";
+
+      msg += "Waiting for other jobs to finish, #" + (result.position + 1) + " in queue";
+      msg += ". click <a href='/cleanJobs/'>here </a> to empty the queue<br><br>Please wait a few minutes before using... ";
+        return msg;
+
     case "audio-download":
       return "Downloading audio for processing";
     case "trim":
