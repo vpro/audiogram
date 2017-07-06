@@ -4,6 +4,20 @@
 
 🔊 -> 🎥
 
+## VPRO setup
+
+The current setup runs on http://audiograms.binnenkort-op.vpro.nl/
+
+The program uses three respawning services (defined in /etc/init) :
+
+* audiograms-redis (which runs a redis-server to keep track of jobs) 
+* audiograms-worker (which pick jobs from the redis-server to generate new video-files)
+* audiograms-server (which runs the frontend node server / UI )
+
+IMPORTANT: The current redis setup is not secure enough to be deployed on a public server. 
+
+## About Audiogram
+
 Audiogram is a library for generating shareable videos from audio clips.
 
 Here are some examples of the audiograms it creates:

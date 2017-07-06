@@ -387,7 +387,7 @@ function statusMessage(result) {
         var msg = "";
 
       msg += "Waiting for other jobs to finish, #" + (result.position + 1) + " in queue";
-      msg += ". click <a href='/cleanJobs/'>here </a> to empty the queue<br><br>Please wait a few minutes before using... ";
+      msg += ". <br/>(if this takes very long, click <a href='/cleanJobs/'>here </a> to empty the queue<br><br>Please wait a few minutes before using...) ";
         return msg;
 
     case "audio-download":
