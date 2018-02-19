@@ -15,6 +15,7 @@ The program uses three respawning services (defined in /etc/init) :
 * audiograms-server (which runs the frontend node server / UI )
 
 IMPORTANT: The current redis setup is not secure enough to be deployed on a public server. 
+Developers must have redis installed and have a local instance of Redis running (./redis-server)
 
 ## About Audiogram
 

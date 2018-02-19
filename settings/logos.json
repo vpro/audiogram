@@ -4,6 +4,10 @@
     "name": "bureau buitenland",
     "logoImage": "bb-transparant.png"
   },
+  "ovt": {
+    "name": "OVT",
+    "logoImage": "ovt.png"
+  },
   "vpro zwart blauw": {
     "name": "zwart blauw",
     "logoImage": "vpro-black-blue.png"
