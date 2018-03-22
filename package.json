@@ -14,7 +14,7 @@
     "watch": "mkdir -p editor/js && watchify client/index.js -o editor/js/bundle.js",
     "debug": "npm run postinstall && DEBUG=1 bin/server",
     "test": "rm -rf test/tmp && tape 'test/**/*-test.js'",
-    "upload:prod" : "rsync --recursive --exclude '.svn*' --exclude '.idea*' --exclude '.rdb' --compress --checksum --verbose . root@vs-appl-02:/data/audiograms"
+    "upload:test" : "rsync --recursive --exclude '.svn*' --exclude '.idea*' --exclude '.rdb' --compress --checksum --verbose . root@vs-appl-02:/data/audiograms"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "browserify": "^13.0.0",
     "canvas": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
     "compression": "^1.6.1",
-    "d3": "^4.1.1",
+    "d3": "4.10.0",
     "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "jquery": "^2.2.1",

@@ -7,8 +7,8 @@ var d3 = require("d3"),
 
 
 d3.queue()
-    .defer(d3.json, "/settings/logos.json")
-    .defer(d3.json, "/settings/themes.json")
+    .defer(d3.json, window.location.protocol + "//" + window.location.host + "/settings/logos.json")
+    .defer(d3.json, window.location.protocol + "//" + window.location.host + "/settings/themes.json")
     .await(function(err, logos, themes) {
 
         var errorMessage;
