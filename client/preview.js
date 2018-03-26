@@ -131,7 +131,7 @@ function loadLogoImage(f, cb) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
       var reader = new FileReader();
-      reader.onloadend = function() {
+      reader.onloadend = function(event) {
           logoFileCanvasImage = new Image();
           logoFileCanvasImage.onload = function(event) {
             redraw();

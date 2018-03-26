@@ -8,6 +8,10 @@
     "name": "OVT",
     "logoImage": "ovt.png"
   },
+  "trees": {
+    "name": "trees",
+    "logoImage": "logo-trees.png"
+  },
   "vpro zwart blauw": {
     "name": "zwart blauw",
     "logoImage": "vpro-black-blue.png"

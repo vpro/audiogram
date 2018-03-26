@@ -75,5 +75,9 @@
   "VPRO grey": {
     "foregroundColor": "#333",
     "backgroundImage" : "theme-greybat.png"
+  },
+  "trees": {
+    "foregroundColor": "#fff",
+    "backgroundImage" : "theme-trees.png"
   }
 }
