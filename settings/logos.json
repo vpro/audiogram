@@ -12,6 +12,10 @@
     "name": "trees",
     "logoImage": "logo-trees.png"
   },
+  "NMS": {
+    "name": "Nooit Meer Slapen",
+    "logoImage": "audiogram-nms.png"
+  },
   "vpro zwart blauw": {
     "name": "zwart blauw",
     "logoImage": "vpro-black-blue.png"
