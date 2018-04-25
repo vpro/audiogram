@@ -16,6 +16,10 @@
     "name": "Nooit Meer Slapen",
     "logoImage": "audiogram-nms.png"
   },
+  "Cinema": {
+    "name": "Cinema",
+    "logoImage": "audiogram-cinema.png"
+  },
   "vpro zwart blauw": {
     "name": "zwart blauw",
     "logoImage": "vpro-black-blue.png"
