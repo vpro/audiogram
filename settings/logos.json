@@ -20,6 +20,14 @@
     "name": "Cinema",
     "logoImage": "audiogram-cinema.png"
   },
+  "3voor12": {
+    "name": "3voor12",
+    "logoImage": "logo-3voor12.png"
+  },
+  "3voor12 radio": {
+    "name": "3voor12 radio",
+    "logoImage": "logo-3voor12-radio.png"
+  },
   "vpro zwart blauw": {
     "name": "zwart blauw",
     "logoImage": "vpro-black-blue.png"

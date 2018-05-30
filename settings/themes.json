@@ -79,5 +79,48 @@
   "trees": {
     "foregroundColor": "#fff",
     "backgroundImage" : "theme-trees.png"
+  },
+  "Instastory White": {
+    "foregroundColor": "#fff",
+    "captionFont": "300 64px 'Simplistic sans'",
+    "captionLineHeight": 64,
+    "captionLineSpacing": 24,
+    "width": 1080,
+    "height": 1920,
+    "captionTop": 60,
+    "captionRight": 1020,
+    "captionLeft": 640,
+    "waveBottom": 1800,
+    "waveTop": 1450,
+    "backgroundImage" : "background-black.png"
+  },
+  "Instastory Red": {
+    "foregroundColor": "#ce0000",
+    "width": 1080,
+    "height": 1920,
+    "captionFont": "300 64px 'Simplistic sans'",
+    "captionLineHeight": 64,
+    "captionLineSpacing": 24,
+    "captionTop": 60,
+    "captionRight": 1020,
+    "captionLeft": 640,
+    "waveBottom": 1800,
+    "waveTop": 1450,
+    "backgroundImage" : "background-black.png"
+  },
+  "Instastory Black": {
+    "foregroundColor": "#000",
+    "width": 1080,
+    "height": 1920,
+    "captionFont": "300 64px 'Simplistic sans'",
+    "captionLineHeight": 64,
+    "captionLineSpacing": 24,
+    "captionTop": 60,
+    "captionRight": 1020,
+    "captionLeft": 640,
+    "waveBottom": 1800,
+    "waveTop": 1450,
+    "backgroundImage" : "lichtgrijs.png"
   }
+
 }
